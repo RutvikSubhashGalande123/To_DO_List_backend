@@ -7,9 +7,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect(
-  "mongodb+srv://rutvikgalande7236:Rutvikgalande7236@rutvikgalandedatabase.oshgfxm.mongodb.net/?retryWrites=true&w=majority/todolist"
-);
+const mongodbconnection = async () => {
+  try {
+    await mongoose.connect(
+      "mongodb+srv://rutvikgalande7236:Rutvikgalande7236@rutvikgalandedatabase.oshgfxm.mongodb.net/todolist"
+    );
+    console.log("mongo db connected");
+  } catch (err) {
+    console.log(err);
+  }
+};
+mongodbconnection();
 
 app.get("/get", (req, res) => {
   console.log("************");
