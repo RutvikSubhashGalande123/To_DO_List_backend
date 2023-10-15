@@ -7,7 +7,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://127.0.0.1:27017/test");
+mongoose.connect(
+  "mongodb+srv://rutvikgalande7236:Rutvikgalande7236@rutvikgalandedatabase.oshgfxm.mongodb.net/?retryWrites=true&w=majority/todolist"
+);
 
 app.get("/get", (req, res) => {
   console.log("************");
